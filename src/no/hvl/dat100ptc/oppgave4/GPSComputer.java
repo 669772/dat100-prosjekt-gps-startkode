@@ -64,12 +64,12 @@ public class GPSComputer {
 	}
 
 	public double[] speeds() {
-		
+
 		double[] speed = new double[gpspoints.length - 1];
-		
+
 		for (int i = 0; i < gpspoints.length - 1; i++) {
 			double gjen = GPSUtils.speed(gpspoints[i], gpspoints[i + 1]);
-			
+
 			speed[i] = gjen;
 		}
 		return speed;
@@ -80,8 +80,9 @@ public class GPSComputer {
 		double maxspeed = 0;
 
 		for (double s : speeds()) {
-			if (s > maxspeed);
-			maxspeed = s;
+			if (s > maxspeed) {
+				maxspeed = s;
+			}
 		}
 		return maxspeed;
 	}
@@ -90,6 +91,9 @@ public class GPSComputer {
 
 		double average = 0;
 
+		average = ((totalDistance() / totalTime()) * 3.6);
+
+		return average;
 
 	}
 
