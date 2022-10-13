@@ -55,11 +55,12 @@ public class ShowRoute extends EasyGraphics {
 	
 		double ystep;
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
+		double maxlon = GPSUtils.findMax(GPSUtils.getLatitudes(gpspoints));
+		double minlon = GPSUtils.findMin(GPSUtils.getLatitudes(gpspoints));
 
-		// TODO - SLUTT
+		ystep = MAPXSIZE / (Math.abs(maxlon - minlon)); 
+
+		return ystep;
 		
 	}
 
