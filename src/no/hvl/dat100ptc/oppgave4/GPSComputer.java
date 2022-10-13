@@ -90,11 +90,6 @@ public class GPSComputer {
 
 		double average = 0;
 
-		// TODO - START
-
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - SLUTT
 
 	}
 
