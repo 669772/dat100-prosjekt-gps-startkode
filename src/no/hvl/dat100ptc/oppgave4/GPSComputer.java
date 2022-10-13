@@ -140,14 +140,16 @@ public class GPSComputer {
 
 	public void displayStatistics() {
 
-		System.out.println("==============================================");
+		String out = "";
 
-		// TODO - START
+        System.out.println("==============================================");
 
-		throw new UnsupportedOperationException(TODO.method());
+        out = "Total time:  " + GPSUtils.formatTime(totalTime())+ "\n Total Distance:  " + totalDistance() + "km \n Total Elevation:  " + totalElevation() + "m \n Max Speed:  " + maxSpeed() + "km/t \n Average Speed:  " + averageSpeed() + "km/t \n Energy:  " + totalKcal(WEIGHT)+ " kcal";
 
-		// TODO - SLUTT
+        System.out.println(out);
 
+        System.out.println("==============================================");
+		
 	}
 
 }
