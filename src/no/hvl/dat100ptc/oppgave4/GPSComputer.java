@@ -118,23 +118,31 @@ public class GPSComputer {
 		double met = 0;
 		double speedmph = speed * MS;
 
-		// TODO - START
-
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - SLUTT
+		if(speedmph<10) {
+            met = 4;
+        }else if (speedmph < 12) {
+            met = 6.0;
+        }else if(speedmph < 14) {
+            met = 8.0;
+        }else if(speedmph < 16) {
+            met = 10.0;
+        }else if(speedmph < 20) {
+            met = 12.0;
+        }else {
+            met = 16.0;
+        }
+		
+		kcal = met/((weight * 1000 - 1) * ((secs*3600) - 1));
+		
+		return kcal;
 
 	}
 
 	public double totalKcal(double weight) {
 
 		double totalkcal = 0;
-
-		// TODO - START
-
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - SLUTT
+		
+		
 
 	}
 
