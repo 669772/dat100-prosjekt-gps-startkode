@@ -122,7 +122,7 @@ public class GPSUtils {
 		d = Math.round(d*100);
 		d = d/100;
 		
-		str = "      " + d;
+		str = String.format("%" + TEXTWIDTH + "s", d);
 
 		return str;
 
