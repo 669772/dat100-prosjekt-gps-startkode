@@ -101,9 +101,11 @@ public class ShowRoute extends EasyGraphics {
 		String out = "";
 
 		out = "\n Total time:  " + GPSUtils.formatTime(gpscomputer.totalTime()) + "\n Total Distance:  "
-				+ gpscomputer.totalDistance() + "km \n Total Elevation:  " + gpscomputer.totalElevation()
-				+ "m \n Max Speed:  " + gpscomputer.maxSpeed() + "km/t \n Average Speed:  " + gpscomputer.averageSpeed()
-				+ "km/t \n Energy:  " + gpscomputer.totalKcal(WEIGHT) + " kcal";
+				+ GPSUtils.formatDouble(gpscomputer.totalDistance()) + "km \n Total Elevation:  "
+				+ GPSUtils.formatDouble(gpscomputer.totalElevation()) + "m \n Max Speed:  "
+				+ GPSUtils.formatDouble(gpscomputer.maxSpeed()) + "km/t \n Average Speed:  "
+				+ GPSUtils.formatDouble(gpscomputer.averageSpeed()) + "km/t \n Energy:  "
+				+ GPSUtils.formatDouble(gpscomputer.totalKcal(WEIGHT)) + " kcal";
 
 		String[] out1 = out.split("\n");
 
