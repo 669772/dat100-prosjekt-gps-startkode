@@ -120,7 +120,7 @@ public class GPSComputer {
 			met = 16.0;
 		}
 
-		kcal = (met * weight * secs)/3600;
+		kcal = (met * weight * secs) / 3600;
 
 		return kcal;
 
@@ -129,12 +129,11 @@ public class GPSComputer {
 	public double totalKcal(double weight) {
 
 		double totalkcal = 0;
-		
+
 		totalkcal = kcal(weight, totalTime(), averageSpeed());
-		
+
 		return totalkcal;
 	}
-	
 
 	private static double WEIGHT = 80.0;
 
@@ -142,14 +141,18 @@ public class GPSComputer {
 
 		String out = "";
 
-        System.out.println("==============================================");
+		System.out.println("==============================================");
 
-        out = "Total time:  " + GPSUtils.formatTime(totalTime())+ "\n Total Distance:  " + totalDistance() + "km \n Total Elevation:  " + totalElevation() + "m \n Max Speed:  " + maxSpeed() + "km/t \n Average Speed:  " + averageSpeed() + "km/t \n Energy:  " + totalKcal(WEIGHT)+ " kcal";
+		out = "Total time:  " + GPSUtils.formatTime(totalTime()) + "\n Total Distance:  "
+				+ GPSUtils.formatDouble(totalDistance()) + "km \n Total Elevation:  "
+				+ GPSUtils.formatDouble(totalElevation()) + "m \n Max Speed:  " + GPSUtils.formatDouble(maxSpeed())
+				+ "km/t \n Average Speed:  " + GPSUtils.formatDouble(averageSpeed()) + "km/t \n Energy:  "
+				+ GPSUtils.formatDouble(totalKcal(WEIGHT)) + " kcal";
 
-        System.out.println(out);
+		System.out.println(out);
 
-        System.out.println("==============================================");
-		
+		System.out.println("==============================================");
+
 	}
 
 }
