@@ -100,7 +100,7 @@ public class ShowRoute extends EasyGraphics {
 
 		String out = "";
 
-		out = "Total time:  " + GPSUtils.formatTime(gpscomputer.totalTime()) + "\n Total Distance:  "
+		out = "\n Total time:  " + GPSUtils.formatTime(gpscomputer.totalTime()) + "\n Total Distance:  "
 				+ gpscomputer.totalDistance() + "km \n Total Elevation:  " + gpscomputer.totalElevation()
 				+ "m \n Max Speed:  " + gpscomputer.maxSpeed() + "km/t \n Average Speed:  " + gpscomputer.averageSpeed()
 				+ "km/t \n Energy:  " + gpscomputer.totalKcal(WEIGHT) + " kcal";
