@@ -95,8 +95,23 @@ public class ShowRoute extends EasyGraphics {
 
 		setColor(0, 0, 0);
 		setFont("Courier", 12);
-		
 
+		int WEIGHT = 80;
+
+		String out = "";
+
+		out = "Total time:  " + GPSUtils.formatTime(gpscomputer.totalTime()) + "\n Total Distance:  "
+				+ gpscomputer.totalDistance() + "km \n Total Elevation:  " + gpscomputer.totalElevation()
+				+ "m \n Max Speed:  " + gpscomputer.maxSpeed() + "km/t \n Average Speed:  " + gpscomputer.averageSpeed()
+				+ "km/t \n Energy:  " + gpscomputer.totalKcal(WEIGHT) + " kcal";
+
+		String[] out1 = out.split("\n");
+
+		for (int i = 0; i < out1.length; i++) {
+
+			drawString(out1[i], 10, TEXTDISTANCE * i);
+
+		}
 	}
 
 }
