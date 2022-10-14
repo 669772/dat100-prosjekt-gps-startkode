@@ -16,7 +16,7 @@ public class ShowRoute extends EasyGraphics {
 
 	private GPSPoint[] gpspoints;
 	private GPSComputer gpscomputer;
-	
+
 	public ShowRoute() {
 
 		String filename = JOptionPane.showInputDialog("GPS data filnavn: ");
@@ -35,7 +35,7 @@ public class ShowRoute extends EasyGraphics {
 		makeWindow("Route", MAPXSIZE + 2 * MARGIN, MAPYSIZE + 2 * MARGIN);
 
 		showRouteMap(MARGIN + MAPYSIZE);
-		
+
 		showStatistics();
 	}
 
@@ -45,46 +45,58 @@ public class ShowRoute extends EasyGraphics {
 		double maxlon = GPSUtils.findMax(GPSUtils.getLongitudes(gpspoints));
 		double minlon = GPSUtils.findMin(GPSUtils.getLongitudes(gpspoints));
 
-		double xstep = MAPXSIZE / (Math.abs(maxlon - minlon)); 
+		double xstep = MAPXSIZE / (Math.abs(maxlon - minlon));
 
 		return xstep;
 	}
 
 	// antall y-pixels per breddegrad
 	public double ystep() {
-	
+
 		double ystep;
-		
+
 		double maxlon = GPSUtils.findMax(GPSUtils.getLatitudes(gpspoints));
 		double minlon = GPSUtils.findMin(GPSUtils.getLatitudes(gpspoints));
 
-		ystep = MAPXSIZE / (Math.abs(maxlon - minlon)); 
+		ystep = MAPXSIZE / (Math.abs(maxlon - minlon));
 
 		return ystep;
-		
+
 	}
 
 	public void showRouteMap(int ybase) {
 
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO - SLUTT
+		double minlon = GPSUtils.findMin(GPSUtils.getLongitudes(gpspoints));
+		double minlat = GPSUtils.findMin(GPSUtils.getLatitudes(gpspoints));
+
+		int x = 0;
+		int y = 0;
+
+		for (int i = 0; i < gpspoints.length; i++) {
+
+			int x2 = x;
+			int y2 = y;
+
+			y = (int) ((gpspoints[i].getLatitude() - minlat) * ystep());
+			x = (int) ((gpspoints[i].getLongitude() - minlon) * xstep());
+
+			setColor(0, 225, 0);
+			fillCircle(x, (ybase - y), 3);
+			if (i > 0) {
+				drawLine(x2, ybase - y2, x, ybase - y);
+			}
+		}
+
 	}
 
 	public void showStatistics() {
 
 		int TEXTDISTANCE = 20;
 
-		setColor(0,0,0);
-		setFont("Courier",12);
+		setColor(0, 0, 0);
+		setFont("Courier", 12);
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO - SLUTT;
+
 	}
 
 }
